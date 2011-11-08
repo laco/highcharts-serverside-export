@@ -32,13 +32,30 @@ public class MultiExport {
 		HighchartsExporter pngExporter = ExportType.png.createExporter ();
 //		
 		long top2 = 0;
-		long top = System.currentTimeMillis ();
+		long top = System.currentTimeMillis();
 		long total = 0;
 		for (int i1=0;i1<10;i1++) {
-			top2 = System.currentTimeMillis ();
+			top2 = System.currentTimeMillis();
 			chartOptions1 = highchartsSamples.createColumnBasic ();
 			total += (System.currentTimeMillis ()-top2);
 			pngExporter.export (chartOptions1, null, new File (exportDirectory, "column-basic"+i1+".png"));
+		}
+		System.out.println("creation "+((total)/10));
+		System.out.println("this is the end "+((System.currentTimeMillis ()-top-total)/10));
+
+        System.out.println();
+        System.out.println("PDF Creation");
+        // PDF Creation
+        HighchartsExporter pdfExporter = ExportType.pdf.createExporter ();
+
+		top2 = 0;
+		top = System.currentTimeMillis ();
+		total = 0;
+		for (int i1=0;i1<2;i1++) {
+			top2 = System.currentTimeMillis ();
+			chartOptions1 = highchartsSamples.createColumnBasic ();
+			total += (System.currentTimeMillis ()-top2);
+			pdfExporter.export(chartOptions1, null, new File(exportDirectory, "column-basic_pdf" + i1 + ".pdf"));
 		}
 		System.out.println("creation "+((total)/10));
 		System.out.println("this is the end "+((System.currentTimeMillis ()-top-total)/10));

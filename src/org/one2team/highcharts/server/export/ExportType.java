@@ -7,6 +7,7 @@ import org.apache.batik.transcoder.image.TIFFTranscoder;
 import org.one2team.highcharts.server.export.util.SVGRendererInternalChartOption;
 import org.one2team.highcharts.server.export.util.SVGRendererInternalJson;
 import org.one2team.highcharts.shared.ChartOptions;
+import org.apache.fop.svg.PDFTranscoder;
 
 public enum ExportType {
 	png {
@@ -23,6 +24,11 @@ public enum ExportType {
 		@Override
 		protected Transcoder getTranscoder () {
 			return new TIFFTranscoder ();
+		}
+	}, pdf {
+		@Override
+		protected Transcoder getTranscoder () {
+			return new PDFTranscoder ();
 		}
 	};
 	

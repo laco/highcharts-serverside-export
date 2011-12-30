@@ -161,7 +161,7 @@ public class JSMArray<E> extends ArrayList<E> implements Array<E>, Scriptable {
     Object[] result = new Object[length ()];
     int i = length ();
     while (--i >= 0)
-        result[i] = new Integer(i);
+        result[i] = Integer.valueOf(i);
     return result;
 	}
 

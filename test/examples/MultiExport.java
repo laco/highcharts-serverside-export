@@ -29,7 +29,7 @@ public class MultiExport {
 		// Inputs :
 		//    1. chartOptions : the java ChartOptions to be exported,
 		//    2. exportFile  : file to export to.
-		HighchartsExporter pngExporter = ExportType.png.createExporter ();
+		HighchartsExporter<ChartOptions> pngExporter = ExportType.png.createExporter ();
 //		
 		long top2 = 0;
 		long top = System.currentTimeMillis();
@@ -46,12 +46,12 @@ public class MultiExport {
         System.out.println();
         System.out.println("PDF Creation");
         // PDF Creation
-        HighchartsExporter pdfExporter = ExportType.pdf.createExporter ();
+        HighchartsExporter<ChartOptions> pdfExporter = ExportType.pdf.createExporter ();
 
 		top2 = 0;
 		top = System.currentTimeMillis ();
 		total = 0;
-		for (int i1=0;i1<2;i1++) {
+		for (int i1=0;i1<10;i1++) {
 			top2 = System.currentTimeMillis ();
 			chartOptions1 = highchartsSamples.createColumnBasic ();
 			total += (System.currentTimeMillis ()-top2);

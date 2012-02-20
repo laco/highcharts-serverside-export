@@ -83,11 +83,6 @@ public class HCExporter {
 				.hasArg().withArgName("JS")
 				.create("E")
 				);
-//		options.addOption( OptionBuilder.withLongOpt( "block-size" )
-//		                                .withDescription( "use SIZE-byte blocks" )
-//		                                .hasArg()
-//		                                .withArgName("SIZE")
-//		                                .create() );
 
 
 		// parse the command line arguments

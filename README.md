@@ -11,7 +11,7 @@ Solution features :
 ## New!!!
 
 * com.lensa.highcharts.HCExporter command line tool to process JSON files and output Chart images
-
+<pre>
 	usage: java -jar hcexporter.jar [OPTIONS]
  	-E,--extra-javascript <JS>   Eval this javascript code after the input.
  	-G,--global-options <arg>    Global options for all charts (JSON)
@@ -21,7 +21,7 @@ Solution features :
  	-O,--output <arg>            The file to output chart. (REQUIRED)
  	-T,--type <arg>              Output type: TIFF or PNG or JPG. (Default:
     	                          PNG)
-
+</pre>
 
 Usage
 -----

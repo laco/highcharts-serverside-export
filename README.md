@@ -1,5 +1,5 @@
-Highcharts Serverside Export
-============================
+Highcharts Serverside Export + HCExporter Command Line Tool
+===========================================================
 
 The primary goal of the Highcharts Serverside Export framework (HSE) is to provide a java API for Highcharts including image generation capabilities.
 
@@ -7,6 +7,21 @@ Solution features :
 
 * Java API corresponding to [Highcharts](http://www.highcharts.com) model (kept compatible with Highcharts model hierarchy and properties),
 * Rhino-Apache Batik based renderer : java ChartOptions ==> Rhino ==> Highcharts ==> SVG ==> image (png, JPEG, etc...),
+
+## New!!!
+
+* com.lensa.highcharts.HCExporter command line tool to process JSON files and output Chart images
+
+	usage: java -jar hcexporter.jar [OPTIONS]
+ 	-E,--extra-javascript <JS>   Eval this javascript code after the input.
+ 	-G,--global-options <arg>    Global options for all charts (JSON)
+ 	-H,--help                    Display this help. ;-)
+ 	-I,--input <arg>             Input javascript file. (Default: STDIN)
+ 	-L,--logging <arg>           log4j config file
+ 	-O,--output <arg>            The file to output chart. (REQUIRED)
+ 	-T,--type <arg>              Output type: TIFF or PNG or JPG. (Default:
+    	                          PNG)
+
 
 Usage
 -----

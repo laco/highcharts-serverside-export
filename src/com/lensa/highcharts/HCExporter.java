@@ -16,6 +16,7 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.cli.PosixParser;
 import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.one2team.highcharts.server.export.ExportType;
@@ -41,15 +42,20 @@ public class HCExporter {
 		this.CommandLineParser(args); // Parse command line arguments
 		
 		// Init HighchartsExporter
-		if (this.outputType == "SVG") {
-			// FIXME
-		} else if (this.outputType == "JPG") {
+		if (this.outputType.equals("SVG")) {
+			logger.debug("SVG export");
+			this.highchartsExporter = ExportType.svg.createJsonExporter ();
+		} else if (this.outputType.equals("JPG")) {
+			logger.debug("JPG export");
 			this.highchartsExporter = ExportType.jpeg.createJsonExporter ();
 			
-		} else if (this.outputType == "TIFF") {
+		} else if (this.outputType.equals("TIFF")) {
+			logger.debug("TIFF export");
 			this.highchartsExporter = ExportType.tiff.createJsonExporter ();
 
 		} else { // Default PNG
+			logger.debug(this.outputType);
+			logger.debug("PNG export");
 			this.highchartsExporter = ExportType.png.createJsonExporter ();
 		}
 	}
@@ -90,8 +96,12 @@ public class HCExporter {
 			
 			if (this.cmd.hasOption("logging")) {
 				PropertyConfigurator.configure(this.cmd.getOptionValue("logging"));
-
+				
+			} else {
+				BasicConfigurator.configure();
+				// logger.setLevel(Level.WARN);
 			}
+			
 			if (this.cmd.hasOption("help") || args.length == 0){
 				HelpFormatter help = new HelpFormatter();
 				String cmdLineSyntax = "java -jar hcexporter.jar [OPTIONS]";
@@ -108,7 +118,8 @@ public class HCExporter {
 			 }
 			
 			if (this.cmd.hasOption("type")) {
-				this.outputType = this.cmd.getOptionValue("type").toUpperCase();
+				this.outputType = this.cmd.getOptionValue("type").toUpperCase().trim();
+				System.out.println( "[" + this.cmd.getOptionValue( "type" ).toUpperCase().trim() + "]" );
 			} else {
 				this.outputType = "PNG";
 			}

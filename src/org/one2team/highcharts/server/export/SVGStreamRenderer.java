@@ -1,8 +1,6 @@
 package org.one2team.highcharts.server.export;
 
-import java.io.ByteArrayOutputStream;
-import java.io.Reader;
-import java.io.StringReader;
+import java.io.*;
 
 import org.apache.batik.transcoder.Transcoder;
 import org.apache.batik.transcoder.TranscoderException;
@@ -15,26 +13,30 @@ class SVGStreamRenderer<T> extends PojoRenderer<T> {
 
 	@Override
 	public void render () {
-		ByteArrayOutputStream baos = null;
-		Reader reader = null;
-		try {
-			baos = new ByteArrayOutputStream ();
+        ByteArrayOutputStream baos = null;
+        Reader reader = null;
+        try {
+            if (transcoder == null) {
+                wrapped.setOutputStream(getOutputStream()).render();
+            } else {
+                baos = new ByteArrayOutputStream();
 
-			wrapped.setOutputStream (baos).render ();
+                wrapped.setOutputStream(baos).render();
 
-			reader = new StringReader (baos.toString ());
+                reader = new StringReader(baos.toString());
 
-			if (getOutputStream () == null)
-				throw (new RuntimeException ("outputstream cannot be null"));
-			
-			transcoder.transcode (new TranscoderInput (reader), new TranscoderOutput (getOutputStream ()));
+                if (getOutputStream() == null)
+                    throw (new RuntimeException("outputstream cannot be null"));
 
-		} catch (TranscoderException e) {
-			throw new RuntimeException (e);
-		} finally {
-			IOUtils.closeQuietly (baos);
-			IOUtils.closeQuietly (reader);
-		}
+                transcoder.transcode(new TranscoderInput(reader), new TranscoderOutput(getOutputStream()));
+            }
+
+        } catch (TranscoderException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (baos != null) IOUtils.closeQuietly(baos);
+            if (reader != null) IOUtils.closeQuietly(reader);
+        }
 	}
 
 	@Override

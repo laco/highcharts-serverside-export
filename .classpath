@@ -36,5 +36,12 @@
 	<classpathentry kind="lib" path="lib/slf4j-api-1.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-log4j12-1.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/commons-cli-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/avalon-framework-4.2.0.jar"/>
+	<classpathentry kind="lib" path="lib/serializer-2.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/xalan-2.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="lib/fop.jar"/>
+	<classpathentry kind="lib" path="lib/xmlgraphics-commons-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/xercesImpl-2.7.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

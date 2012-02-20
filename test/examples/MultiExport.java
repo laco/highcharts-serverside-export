@@ -8,42 +8,71 @@ import org.one2team.highcharts.shared.ChartOptions;
 
 public class MultiExport {
 
-	public static void main (String[] args) {
-		
-		// This executable expects an export directory as input
-		File exportDirectory = new File (args [0]);
-		
-		final SamplesFactory highchartsSamples = SamplesFactory.getSingleton ();
-		
-		// ====================================================================
-		// ChartOptions creation
-		// ----------------------
-		//  The createHighchartsDemoColumnBasic method describes the creation of 
-		//   a java chartOption. It is a java equivalent to javascript Highcharts sample
-		//   (see http://highcharts.com/demo/column-basic)
-		ChartOptions chartOptions1 = highchartsSamples.createColumnBasic ();
+    public static void main(String[] args) {
 
-		// ====================================================================
-		// Chart export
-		// ----------------
-		// Inputs :
-		//    1. chartOptions : the java ChartOptions to be exported,
-		//    2. exportFile  : file to export to.
-		HighchartsExporter pngExporter = ExportType.png.createExporter ();
+        // This executable expects an export directory as input
+        File exportDirectory = new File(args[0]);
+
+        final SamplesFactory highchartsSamples = SamplesFactory.getSingleton();
+
+        // ====================================================================
+        // ChartOptions creation
+        // ----------------------
+        //  The createHighchartsDemoColumnBasic method describes the creation of
+        //   a java chartOption. It is a java equivalent to javascript Highcharts sample
+        //   (see http://highcharts.com/demo/column-basic)
+        ChartOptions chartOptions1 = highchartsSamples.createColumnBasic();
+
+        // ====================================================================
+        // Chart export
+        // ----------------
+        // Inputs :
+        //    1. chartOptions : the java ChartOptions to be exported,
+        //    2. exportFile  : file to export to.
+        HighchartsExporter<ChartOptions> pngExporter = ExportType.png.createExporter();
 //		
-		long top2 = 0;
-		long top = System.currentTimeMillis ();
-		long total = 0;
-		for (int i1=0;i1<10;i1++) {
-			top2 = System.currentTimeMillis ();
-			chartOptions1 = highchartsSamples.createColumnBasic ();
-			total += (System.currentTimeMillis ()-top2);
-			pngExporter.export (chartOptions1, null, new File (exportDirectory, "column-basic"+i1+".png"));
-		}
-		System.out.println("creation "+((total)/10));
-		System.out.println("this is the end "+((System.currentTimeMillis ()-top-total)/10));
-		
-	}
+        long top2 = 0;
+        long top = System.currentTimeMillis();
+        long total = 0;
+        for (int i1 = 0; i1 < 1; i1++) {
+            top2 = System.currentTimeMillis();
+            chartOptions1 = highchartsSamples.createColumnBasic();
+            total += (System.currentTimeMillis() - top2);
+            pngExporter.export(chartOptions1, null, new File(exportDirectory, "column-basic" + i1 + ".png"));
+        }
+        System.out.println("creation " + ((total) / 10));
+        System.out.println("this is the end " + ((System.currentTimeMillis() - top - total) / 10));
+
+        System.out.println();
+        System.out.println("PDF Creation");
+        // PDF Creation
+        HighchartsExporter<ChartOptions> pdfExporter = ExportType.pdf.createExporter();
+
+        top2 = 0;
+        top = System.currentTimeMillis();
+        total = 0;
+        for (int i1 = 0; i1 < 1; i1++) {
+            top2 = System.currentTimeMillis();
+            chartOptions1 = highchartsSamples.createColumnBasic();
+            total += (System.currentTimeMillis() - top2);
+            pdfExporter.export(chartOptions1, null, new File(exportDirectory, "column-basic_pdf" + i1 + ".pdf"));
+        }
+        System.out.println("creation " + ((total) / 10));
+        System.out.println("this is the end " + ((System.currentTimeMillis() - top - total) / 10));
+
+        HighchartsExporter<ChartOptions> svgExporter = ExportType.svg.createExporter();
+        top2 = 0;
+        top = System.currentTimeMillis();
+        total = 0;
+        for (int i1 = 0; i1 < 10; i1++) {
+            top2 = System.currentTimeMillis();
+            chartOptions1 = highchartsSamples.createColumnBasic();
+            total += (System.currentTimeMillis() - top2);
+            svgExporter.export(chartOptions1, null, new File(exportDirectory, "column-basic_svg" + i1 + ".svg"));
+        }
+        System.out.println("creation " + ((total) / 10));
+        System.out.println("this is the end " + ((System.currentTimeMillis() - top - total) / 10));
+    }
 
 
 }

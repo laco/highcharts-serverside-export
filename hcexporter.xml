@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project highcharts-serverside-export with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="/home/laco/work/TEST/hcexporter.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="com.lensa.highcharts.HCExporterCmd"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ batik-anim.jar batik-awt-util.jar batik-bridge.jar batik-codec.jar batik-css.jar batik-dom.jar batik-ext.jar batik-extension.jar batik-gui-util.jar batik-gvt.jar batik-parser.jar batik-rasterizer.jar batik-script.jar batik-squiggle.jar batik-svg-dom.jar batik-svggen.jar batik-svgpp.jar batik-transcoder.jar batik-util.jar batik-xml.jar batik.jar gson-1.4.jar xml-apis-ext.jar rhino-1.7R2.jar commons-io-1.4.jar log4j-1.2.15.jar slf4j-api-1.6.0.jar slf4j-log4j12-1.6.0.jar commons-cli-1.2.jar avalon-framework-4.2.0.jar serializer-2.7.0.jar xalan-2.7.0.jar commons-logging-1.0.4.jar xercesImpl-2.7.1.jar xmlgraphics-commons-1.4.jar fop.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/build/classes"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-anim.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-awt-util.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-bridge.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-codec.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-css.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-dom.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-ext.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-extension.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-gui-util.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-gvt.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-parser.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-rasterizer.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-script.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-squiggle.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-svg-dom.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-svggen.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-svgpp.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-transcoder.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-util.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik-xml.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="batik.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="gson-1.4.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="xml-apis-ext.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="rhino-1.7R2.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="commons-io-1.4.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="log4j-1.2.15.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="slf4j-api-1.6.0.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="slf4j-log4j12-1.6.0.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="commons-cli-1.2.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="avalon-framework-4.2.0.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="serializer-2.7.0.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="xalan-2.7.0.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="commons-logging-1.0.4.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="xercesImpl-2.7.1.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="xmlgraphics-commons-1.4.jar"/>
+            <zipfileset dir="/home/laco/eclipse_workspace/highcharts-serverside-export/lib" includes="fop.jar"/>
+        </jar>
+    </target>
+</project>

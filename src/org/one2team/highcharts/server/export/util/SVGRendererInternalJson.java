@@ -2,6 +2,7 @@ package org.one2team.highcharts.server.export.util;
 
 import org.mozilla.javascript.ScriptableObject;
 
+
 public class SVGRendererInternalJson extends SVGRendererInternal<String> {
 
 	@Override

@@ -94,7 +94,7 @@ public class HCExporter {
 				
 			} else {
 				BasicConfigurator.configure();
-				// logger.setLevel(Level.WARN);
+				logger.setLevel(Level.TRACE);
 			}
 			
 			if (this.cmd.hasOption("help") || args.length == 0){
@@ -144,6 +144,8 @@ public class HCExporter {
 		    }
 		    if (this.cmd.hasOption("global-options")){
 		    	this.globalOptions = this.cmd.getOptionValue("global-options");
+		    	logger.debug("Global options:");
+		    	logger.debug(this.globalOptions);
 		    } else {
 		    	this.globalOptions = null;
 		    }

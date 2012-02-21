@@ -23,7 +23,7 @@ class SVGRenderer<T> extends PojoRenderer<T> {
 		
 		ByteArrayInputStream byteStream = null;
 		try {
-			final String svg = internal.getSVG (generalOptions, getChartOptions ());
+			final String svg = internal.getSVG (getGlobalOptions(), getChartOptions ());
 			if (svg == null)
 				throw (new RuntimeException ("cannot generate svg"));
 			byteStream = new ByteArrayInputStream (svg.getBytes ());

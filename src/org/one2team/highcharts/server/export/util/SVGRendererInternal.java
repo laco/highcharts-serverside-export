@@ -17,9 +17,9 @@ import org.mozilla.javascript.tools.debugger.ScopeProvider;
 
 public abstract class SVGRendererInternal<T> {
 	
-		protected abstract Object callJavascript (final String generalOptions, final T chartOptions);
+		protected abstract Object callJavascript (final T generalOptions, final T chartOptions);
 	  
-		public String getSVG (final String generalOptions, final T chartOptions) throws IOException {
+		public String getSVG (final T generalOptions, final T chartOptions) throws IOException {
 	    SVGHighchartsHelper.LOGGER.debug ("get svg for highcharts export functions with rhino");
 	    Object call;
 	    if (SVGHighchartsHelper.DEBUG) {

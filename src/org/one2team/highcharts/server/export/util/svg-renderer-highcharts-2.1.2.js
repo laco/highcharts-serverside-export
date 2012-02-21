@@ -56,8 +56,10 @@ function renderSVGFromJson (jsonGeneralOptions, jsonChartOptions) {
 function renderSVGFromObject (jsonGeneralOptions, chartOptions) {
 	n = Highcharts.createElement('div', null, null, null, true);
 	var toto = eval (jsonGeneralOptions);
-	Highcharts.setOptions.call (Highcharts, toto);
-	var newChartOptions = chartOptions;
+	// Highcharts.setOptions.call (Highcharts, toto);
+	Highcharts.setOptions(toto);
+	
+	var newChartOptions = Highcharts.merge(toto, chartOptions);
 	
 	new FormatWrapper ().visitObject(newChartOptions);
 	var chartOptionsChart = newChartOptions.chart;

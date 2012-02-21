@@ -6,8 +6,8 @@ import org.one2team.highcharts.shared.ChartOptions;
 public class SVGRendererInternalChartOption extends SVGRendererInternal<ChartOptions> {
 
 	@Override
-	protected Object callJavascript (final String generalOptions, final ChartOptions chartOptions) {
-		return ScriptableObject.callMethod (null, SCRIPTABLE, "renderSVGFromObject",  new Object [] {'(' + generalOptions + ')', chartOptions});
+	protected Object callJavascript (final ChartOptions generalOptions, final ChartOptions chartOptions) {
+		return ScriptableObject.callMethod (null, SCRIPTABLE, "renderSVGFromObject",  new Object [] { generalOptions , chartOptions});
 	}
 
 }
